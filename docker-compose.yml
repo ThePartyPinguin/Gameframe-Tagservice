@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  gameframe-tagservice:
+    build: .
+    container_name: gameframe-tagservice
+    expose:
+      - "8120/tcp"
+    networks:
+      - gameframe-internal-network
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+    environment:
+      - INTERNAL_APP_NAME=${INTERNAL_APP_NAME}
+      - SERVICE_INTERNAL_PORT=${SERVICE_INTERNAL_PORT}
+      - EUREKA_URI=${EUREKA_URI}
+      - DATABASE_HIBERNATE_DIALECT=${DATABASE_HIBERNATE_DIALECT}
+      - DATABASE_DRIVER_CLASS_NAME=${DATABASE_DRIVER_CLASS_NAME}
+      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - HIBERNATE_SHOW_SQL=${HIBERNATE_SHOW_SQL}
+
+
+networks:
+  gameframe-internal-network:
+    external: true
