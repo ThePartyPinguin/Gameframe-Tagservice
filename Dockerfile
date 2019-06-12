@@ -26,4 +26,4 @@ WORKDIR /app
 COPY --from=maven /app/target/gameframe-userservice.jar ./
 
 # Run the application.
-CMD ["java", "-jar", "gameframe-userservice.jar"]
+CMD ["java", "-jar", "gameframe-tagservice.jar"]
