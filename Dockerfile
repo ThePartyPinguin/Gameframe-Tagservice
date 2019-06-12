@@ -23,7 +23,7 @@ FROM openjdk:8-jre-alpine
 WORKDIR /app
 
 # Copy the JAR into the image.
-COPY --from=maven /app/target/gameframe-userservice.jar ./
+COPY --from=maven /app/target/gameframe-tagservice.jar ./
 
 # Run the application.
 CMD ["java", "-jar", "gameframe-tagservice.jar"]
